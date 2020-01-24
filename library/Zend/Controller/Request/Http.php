@@ -961,7 +961,7 @@ class Zend_Controller_Request_Http extends Zend_Controller_Request_Abstract
      */
     public function isSecure()
     {
-        return ($this->getScheme() === self::SCHEME_HTTPS);
+        return ($this->getScheme() === self::SCHEME_HTTPS) || ($this->getHeader('X_FORWARDED_PROTO') === 'https');
     }
 
     /**
